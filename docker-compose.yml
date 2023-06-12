@@ -6,9 +6,10 @@ services:
     hostname: 'anisette'
     user: 65534:65534
     read_only: true
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: dadoum/anisette-server:latest
+    #build:
+      #context: .
+      #dockerfile: Dockerfile
     ports:
       - '127.0.0.1:6969:6969'
     restart: 'always'
