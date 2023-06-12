@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  anisette-server:
+    container_name: 'anisette'
+    hostname: 'anisette'
+    user: 65534:65534
+    read_only: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '127.0.0.1:6969:6969'
+    restart: 'always'
+    volumes:
+      - 'provision_config:/home/Chester/.config/Provision/'
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    networks:
+     - anisette
+networks:
+  anisette:
